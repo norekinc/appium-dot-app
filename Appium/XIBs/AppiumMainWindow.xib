@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppiumMainWindowController">
@@ -193,10 +193,10 @@
                                     <outlet property="popoverController" destination="Ug1-6P-qDs" id="nFs-nc-yah"/>
                                 </connections>
                             </button>
-                            <button toolTip="Developer Settings" id="RLj-er-2g4" userLabel="Developer Settings Button" customClass="AppiumMainWindowPopOverButton">
-                                <rect key="frame" x="436" y="28" width="52" height="42"/>
+                            <button hidden="YES" toolTip="Developer Settings" id="RLj-er-2g4" userLabel="Developer Settings Button" customClass="AppiumMainWindowPopOverButton">
+                                <rect key="frame" x="492" y="28" width="52" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="dev-settings" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" id="gsJ-aC-Tgs">
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="dev-settings" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" id="gsJ-aC-Tgs">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -206,20 +206,7 @@
                                     <outlet property="popoverController" destination="8ME-c5-j9d" id="Ihe-YG-OGg"/>
                                 </connections>
                             </button>
-                            <button toolTip="Robot Settings" id="MPC-8q-i8X" userLabel="Robot Settings Button" customClass="AppiumMainWindowPopOverButton">
-                                <rect key="frame" x="492" y="28" width="52" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="robot" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" id="4rl-rw-UXu">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <accessibility description="Robot Settings Button"/>
-                                <connections>
-                                    <action selector="toggle:" target="Vql-EG-AP5" id="IND-sU-of3"/>
-                                    <outlet property="popoverController" destination="Vql-EG-AP5" id="J7l-2g-KR9"/>
-                                </connections>
-                            </button>
-                            <button toolTip="Launch" id="276" userLabel="Launch Button">
+                            <button hidden="YES" toolTip="Launch" id="276" userLabel="Launch Button">
                                 <rect key="frame" x="548" y="28" width="80" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" title="Launch" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="277">
@@ -239,6 +226,19 @@
                                             <string key="NSValueTransformerName">AppiumLaunchButtonTextTransformer</string>
                                         </dictionary>
                                     </binding>
+                                </connections>
+                            </button>
+                            <button toolTip="Robot Settings" id="MPC-8q-i8X" userLabel="Robot Settings Button" customClass="AppiumMainWindowPopOverButton">
+                                <rect key="frame" x="436" y="28" width="52" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="robot" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" id="4rl-rw-UXu">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <accessibility description="Robot Settings Button"/>
+                                <connections>
+                                    <action selector="toggle:" target="Vql-EG-AP5" id="IND-sU-of3"/>
+                                    <outlet property="popoverController" destination="Vql-EG-AP5" id="J7l-2g-KR9"/>
                                 </connections>
                             </button>
                         </subviews>

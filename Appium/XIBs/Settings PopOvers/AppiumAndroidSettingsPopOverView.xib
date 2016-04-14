@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppiumAndroidSettingsPopOverViewController">
@@ -29,13 +30,13 @@
                     <font key="font" metaFont="system"/>
                     <tabViewItems>
                         <tabViewItem label="Basic" identifier="1" id="JV0-zU-mib">
-                            <view key="view" id="bCx-Qv-Rmt">
+                            <view key="view" ambiguous="YES" id="bCx-Qv-Rmt">
                                 <rect key="frame" x="10" y="33" width="577" height="532"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Application" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="PUQ-yV-M3S" userLabel="Application Settings Box">
                                         <rect key="frame" x="6" y="261" width="566" height="271"/>
-                                        <view key="contentView">
+                                        <view key="contentView" id="uQj-se-u55">
                                             <rect key="frame" x="1" y="1" width="564" height="255"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -650,6 +651,11 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
+                                                        <binding destination="-2" name="value" keyPath="model.android.dontStopAppOnReset" id="bjz-tG-szK">
+                                                            <dictionary key="options">
+                                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                            </dictionary>
+                                                        </binding>
                                                         <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="GW7-W6-gxZ" id="XVC-Gy-TIJ">
                                                             <dictionary key="options">
                                                                 <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -664,11 +670,6 @@
                                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                             </dictionary>
                                                         </binding>
-                                                        <binding destination="-2" name="value" keyPath="model.android.dontStopAppOnReset" id="bjz-tG-szK">
-                                                            <dictionary key="options">
-                                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                            </dictionary>
-                                                        </binding>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -678,7 +679,7 @@
                                     </box>
                                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Launch Device" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="nAf-AR-ouQ" userLabel="Launch Device Box">
                                         <rect key="frame" x="6" y="167" width="566" height="90"/>
-                                        <view key="contentView">
+                                        <view key="contentView" id="gOV-ky-rMs">
                                             <rect key="frame" x="1" y="1" width="564" height="74"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -865,7 +866,7 @@
                                     </box>
                                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Capabilities" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="9ew-aY-EG7" userLabel="Capabilities Box">
                                         <rect key="frame" x="6" y="18" width="566" height="145"/>
-                                        <view key="contentView">
+                                        <view key="contentView" id="yXN-hz-vLd">
                                             <rect key="frame" x="1" y="1" width="564" height="129"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -1069,7 +1070,7 @@
                                 <subviews>
                                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Advanced" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="yDx-DS-QaF" userLabel="Advanced Box">
                                         <rect key="frame" x="6" y="384" width="566" height="148"/>
-                                        <view key="contentView">
+                                        <view key="contentView" id="799-dz-cPn">
                                             <rect key="frame" x="1" y="1" width="564" height="132"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -1328,6 +1329,7 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
+                                                        <binding destination="-2" name="value" keyPath="model.android.useChromedriverExecutablePath" id="vna-ZO-gRW"/>
                                                         <binding destination="-2" name="enabled2" keyPath="model.general.useRemoteServer" previousBinding="FnI-wX-upE" id="QOG-4n-3xB">
                                                             <dictionary key="options">
                                                                 <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -1342,7 +1344,6 @@
                                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                             </dictionary>
                                                         </binding>
-                                                        <binding destination="-2" name="value" keyPath="model.android.useChromedriverExecutablePath" id="vna-ZO-gRW"/>
                                                     </connections>
                                                 </button>
                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g90-71-4y7" userLabel="Chromedriver Port Text Field">
@@ -1387,15 +1388,8 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <connections>
-                                                        <binding destination="-2" name="enabled2" keyPath="model.isServerRunning" previousBinding="Bh6-pP-5Ne" id="9Of-Ls-1qG">
-                                                            <dictionary key="options">
-                                                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
-                                                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
-                                                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
-                                                                <integer key="NSNullPlaceholder" value="-1"/>
-                                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                            </dictionary>
-                                                        </binding>
+                                                        <binding destination="-2" name="value" keyPath="model.android.chromedriverExecutablePath" id="WRW-DZ-wWi"/>
+                                                        <binding destination="-2" name="enabled" keyPath="model.android.useChromedriverExecutablePath" id="Bh6-pP-5Ne"/>
                                                         <binding destination="-2" name="enabled3" keyPath="model.general.useRemoteServer" previousBinding="9Of-Ls-1qG" id="Ciw-eD-y0x">
                                                             <dictionary key="options">
                                                                 <integer key="NSMultipleValuesPlaceholder" value="-1"/>
@@ -1405,8 +1399,15 @@
                                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                             </dictionary>
                                                         </binding>
-                                                        <binding destination="-2" name="enabled" keyPath="model.android.useChromedriverExecutablePath" id="Bh6-pP-5Ne"/>
-                                                        <binding destination="-2" name="value" keyPath="model.android.chromedriverExecutablePath" id="WRW-DZ-wWi"/>
+                                                        <binding destination="-2" name="enabled2" keyPath="model.isServerRunning" previousBinding="Bh6-pP-5Ne" id="9Of-Ls-1qG">
+                                                            <dictionary key="options">
+                                                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                                <integer key="NSNullPlaceholder" value="-1"/>
+                                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                            </dictionary>
+                                                        </binding>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -1416,7 +1417,7 @@
                                     </box>
                                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Keystore Settings" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="YDa-rh-ysb" userLabel="Keystore Settings Box">
                                         <rect key="frame" x="11" y="271" width="566" height="109"/>
-                                        <view key="contentView">
+                                        <view key="contentView" id="Qs4-wf-sUo">
                                             <rect key="frame" x="1" y="1" width="564" height="93"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>

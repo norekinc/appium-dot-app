@@ -98,7 +98,7 @@
     BOOL installationRequired = ![NodeInstance instanceExistsAtPath:nodeRootPath];
     installationRequired |= ![NodeInstance packageIsInstalledAtPath:nodeRootPath withName:@"appium"];
 
-    if (installationRequired)
+    if (installationRequired && false)
     {
         // install software
         AppiumInstallationWindowController *installationWindow = [[AppiumInstallationWindowController alloc] initWithWindowNibName:@"AppiumInstallationWindow"];
