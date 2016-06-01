@@ -42,9 +42,6 @@
 -(BOOL) checkForUpdates { return [DEFAULTS boolForKey:APPIUM_PLIST_CHECK_FOR_UPDATES]; }
 -(void) setCheckForUpdates:(BOOL)checkForUpdates { [DEFAULTS setBool:checkForUpdates forKey:APPIUM_PLIST_CHECK_FOR_UPDATES]; }
 
--(NSNumber*) commandTimeout { return [NSNumber numberWithInt:[[DEFAULTS stringForKey:APPIUM_PLIST_NEW_COMMAND_TIMEOUT] intValue]]; }
--(void) setCommandTimeout:(NSNumber *)commandTimeout { [[NSUserDefaults standardUserDefaults] setValue:commandTimeout forKey:APPIUM_PLIST_NEW_COMMAND_TIMEOUT]; }
-
 -(NSArray*) environmentVariables {
 	NSArray *envArray = [DEFAULTS arrayForKey:APPIUM_PLIST_ENVIRONMENT_VARIABLES];
 	if (envArray == nil) {
@@ -55,6 +52,17 @@
 	}
 }
 -(void) setEnvironmentVariables:(NSArray *)environmentVariables { [DEFAULTS setValue:environmentVariables forKey:APPIUM_PLIST_ENVIRONMENT_VARIABLES]; }
+
+-(NSArray*) serverCapabilitiesVariables {
+	NSArray *capsArray = [DEFAULTS arrayForKey:APPIUM_PLIST_SERVER_CAPABILITIES_VARIABLES];
+	if (capsArray == nil) {
+		[self setServerCapabilitiesVariables:@[]];
+		return [DEFAULTS arrayForKey:APPIUM_PLIST_SERVER_CAPABILITIES_VARIABLES];
+	} else {
+		return capsArray;
+	}
+}
+-(void) setServerCapabilitiesVariables:(NSArray *)serverCapabilitiesVariables { [DEFAULTS setValue:serverCapabilitiesVariables forKey:APPIUM_PLIST_SERVER_CAPABILITIES_VARIABLES]; }
 
 -(BOOL) killProcessesUsingPort { return [DEFAULTS boolForKey:APPIUM_PLIST_KILL_PROCESSES_USING_PORT]; }
 -(void) setKillProcessesUsingPort:(BOOL)killProcessesUsingPort { [DEFAULTS setBool:killProcessesUsingPort forKey:APPIUM_PLIST_KILL_PROCESSES_USING_PORT];}

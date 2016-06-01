@@ -12,6 +12,7 @@
 
 @interface AppiumGeneralSettingsPopOverViewController : AppiumMainWindowPopOverViewController<NSTableViewDataSource,NSTableViewDelegate>
 @property IBOutlet NSTableView *environmentVariablesTableView;
+@property IBOutlet NSTableView *serverCapabilitiesVariablesTableView;
 @end
 
 @interface AppiumEnvironmentVariableTextFieldDelegate : NSObject<NSTextFieldDelegate>

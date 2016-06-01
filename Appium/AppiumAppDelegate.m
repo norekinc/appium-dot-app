@@ -99,6 +99,11 @@
     BOOL appiumInstallationRequired = ![NodeInstance packageIsInstalledAtPath:nodeRootPath withName:@"appium"];
 	BOOL doctorInstallationRequired = ![NodeInstance packageIsInstalledAtPath:nodeRootPath withName:@"appium-doctor"];
 	
+	
+	// show main monitor window
+	[[self mainWindowController] performSelectorOnMainThread:@selector(showWindow:) withObject:self waitUntilDone:YES];
+	[[[self mainWindowController] window] performSelectorOnMainThread:@selector(makeKeyAndOrderFront:) withObject:self waitUntilDone:YES];
+	
     if (nodeInstallationRequired || appiumInstallationRequired || doctorInstallationRequired)
     {
         // install software
@@ -127,10 +132,6 @@
         // create node instance
         [[self mainWindowController] setNode:[[NodeInstance alloc] initWithPath:nodeRootPath]];
     }
-
-    // show main monitor window
-    [[self mainWindowController] performSelectorOnMainThread:@selector(showWindow:) withObject:self waitUntilDone:YES];
-    [[[self mainWindowController] window] performSelectorOnMainThread:@selector(makeKeyAndOrderFront:) withObject:self waitUntilDone:YES];
 
     // check for authorization
     [self performSelectorOnMainThread:@selector(checkForAuthorization) withObject:nil waitUntilDone:YES];

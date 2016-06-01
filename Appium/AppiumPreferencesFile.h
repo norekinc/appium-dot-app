@@ -64,6 +64,7 @@
 #define APPIUM_PLIST_CUSTOM_FLAGS @"Custom Flags"
 #define APPIUM_PLIST_DEVELOPER_MODE @"Developer Mode"
 #define APPIUM_PLIST_ENVIRONMENT_VARIABLES @"Environment Variables"
+#define APPIUM_PLIST_SERVER_CAPABILITIES_VARIABLES @"Server Capabilities Variables"
 #define APPIUM_PLIST_EXTERNAL_APPIUM_PACKAGE_PATH @"External Appium Package Path"
 #define APPIUM_PLIST_EXTERNAL_NODEJS_BINARY_PATH @"External NodeJS Binary Path"
 #define APPIUM_PLIST_INSPECTOR_CODEMAKER_LANGUAGE @"Inspector CodeMaker Language"

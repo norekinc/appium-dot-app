@@ -17,6 +17,7 @@
 @property BOOL checkForUpdates;
 @property NSNumber *commandTimeout;
 @property NSArray *environmentVariables;
+@property NSArray *serverCapabilitiesVariables;
 @property BOOL killProcessesUsingPort;
 @property BOOL logColors;
 @property NSString *logFile;

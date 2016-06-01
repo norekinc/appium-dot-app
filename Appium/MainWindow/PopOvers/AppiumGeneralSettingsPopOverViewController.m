@@ -14,6 +14,7 @@
 @interface AppiumGeneralSettingsPopOverViewController()
 
 @property (readonly) NSArray *environmentVariables;
+@property (readonly) NSArray *serverCapabilitiesVariables;
 @property (nonatomic, strong) NSMutableArray *delegates;
 
 @end
@@ -35,6 +36,11 @@
 	[generalSettings setEnvironmentVariables:envVars];
 	[self.environmentVariablesTableView reloadData];
 }
+- (IBAction)addCapabilityButtonClicked:(id)sender {
+    AppiumGeneralSettingsModel *generalSettings = ((AppiumAppDelegate*)[[NSApplication sharedApplication] delegate]).model.general;
+    [generalSettings setServerCapabilitiesVariables:[@[@{@"key":@"newCapability",@"value":@"newCapValue"}] arrayByAddingObjectsFromArray:self.serverCapabilitiesVariables]];
+    [self.serverCapabilitiesVariablesTableView reloadData];
+}
 
 #pragma mark - Environment Variables Table View Delegate / Data Source
 
@@ -49,6 +55,22 @@
 		}
 	}
 	[((AppiumAppDelegate*)[[NSApplication sharedApplication] delegate]).model.general setEnvironmentVariables:finalVars];
+	
+	return finalVars;
+}
+
+#pragma mark - Server Capabilities Variables Table View Delegate / Data Source
+
+- (NSArray*) serverCapabilitiesVariables {
+	
+	NSArray *capsVars = ((AppiumAppDelegate*)[[NSApplication sharedApplication] delegate]).model.general.serverCapabilitiesVariables;
+	NSMutableArray *finalVars = [NSMutableArray new];
+	for (NSDictionary *var in capsVars) {
+		if ([var objectForKey:@"key"] && [var objectForKey:@"value"]) {
+			[finalVars addObject:var];
+		}
+	}
+	[((AppiumAppDelegate*)[[NSApplication sharedApplication] delegate]).model.general setServerCapabilitiesVariables:finalVars];
 	
 	return finalVars;
 }
